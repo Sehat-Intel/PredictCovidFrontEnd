@@ -31,12 +31,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
    this.authService.loginUser(this.loginForm.value)
-   .subscribe(res => {
-     if(!res.error){
-       console.log(res)
-       this.router.navigate(['/records'])
-     }
-   })
-  }
+   .subscribe(
+    res => {
+      console.log(res)
+      localStorage.setItem('token', res.token )
+      this.router.navigate(['/records'])
+    },
+    err => console.log(err)
+    )};
 
 }

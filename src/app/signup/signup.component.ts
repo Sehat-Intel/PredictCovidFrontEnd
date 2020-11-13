@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
   title: string
   constructor(
     private fb: FormBuilder,
-    private Router: Router,
+    private router: Router,
     private authService: AuthService
   ) { }
 
@@ -39,14 +39,13 @@ export class SignupComponent implements OnInit {
     this.model = this.signupForm.value;
     console.log(this.model)
     this.authService.signupUser(this.model)
-    .subscribe(res => {
-      if(!res.error) {
+    .subscribe(
+      res => {
         console.log(res)
-      }
-      else{
-        console.error(res.error)
-      }
-    });
-  }
+        localStorage.setItem('token', res.token )
+        this.router.navigate(['/records'])
+      },
+      err => console.log(err)
+      )};
 
 }
