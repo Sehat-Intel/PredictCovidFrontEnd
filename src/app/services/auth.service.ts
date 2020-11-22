@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Users } from '../models/users';
 
 @Injectable({
@@ -9,7 +10,8 @@ import { Users } from '../models/users';
 export class AuthService {
 
   private baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 
   signupUser(user: Users){
     return this.http.post<any>(this.baseUrl+'/signup', user)
@@ -22,5 +24,14 @@ export class AuthService {
   loggedIn(){
     return !!localStorage.getItem('token')
     //double negate so it will return a boolean
+  }
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+    this.router.navigate(['/login'])
   }
 }

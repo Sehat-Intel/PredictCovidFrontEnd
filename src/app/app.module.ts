@@ -11,6 +11,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { RecordsComponent } from './records/records.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,
