@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RecordsComponent } from './records/records.component';
+import { RecordComponent } from './shared/record/record.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
     component: RecordsComponent,
     canActivate: [AuthGuard]
  },
+ {
+   path: 'record', component: RecordComponent,
+   canActivate: [AuthGuard]
+ }
 ];
 
 @NgModule({

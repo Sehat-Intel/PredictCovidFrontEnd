@@ -17,7 +17,7 @@ getRecords(){
 }
 
 getSelectedRecord(id: string){
-  return this.http.get<any>(`${this.baseUrl}+'/records/+${id}`);
+  return this.http.get<any>(`${this.baseUrl}/records/${id}`);
 }
 
 }

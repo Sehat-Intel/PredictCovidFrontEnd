@@ -33,4 +33,10 @@ export class RecordsComponent implements OnInit {
     )
   }
 
+  view(id){
+    this.router.navigate(['/record'],{
+      queryParams: { id : id }
+    });
+  }
+
 }
