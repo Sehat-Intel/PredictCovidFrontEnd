@@ -20,4 +20,9 @@ getSelectedRecord(id: string){
   return this.http.get<any>(`${this.baseUrl}/records/${id}`);
 }
 
+updateMessage(id: string, message: string){
+  console.log(id, message)
+  return this.http.post<any>(`${this.baseUrl}/records/${id}`, {message: message});
+}
+
 }
