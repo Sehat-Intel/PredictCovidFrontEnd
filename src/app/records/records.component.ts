@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { RecordsService } from '../services/records.service';
 import { Router } from "@angular/router";
 
+import { MatDialog } from "@angular/material/dialog";
+import { DialogComponent } from './dialog/dialog.component';
+import {MatCardModule} from '@angular/material/card';
+
 @Component({
   selector: 'app-records',
   templateUrl: './records.component.html',
@@ -12,10 +16,12 @@ export class RecordsComponent implements OnInit {
   records = [];
 
   constructor(private recordsService: RecordsService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
+    //this.openDialog()
     this.recordsService.getRecords()
     .subscribe(
       res => this.records = res,
@@ -37,6 +43,10 @@ export class RecordsComponent implements OnInit {
     this.router.navigate(['/record'],{
       queryParams: { id : id }
     });
+  }
+
+  openDialog(){
+    this.dialog.open(DialogComponent)
   }
 
 }
