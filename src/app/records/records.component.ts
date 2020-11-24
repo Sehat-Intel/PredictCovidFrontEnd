@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from './dialog/dialog.component';
 import {MatCardModule} from '@angular/material/card';
+import { RecordComponent } from './record/record.component';
 
 @Component({
   selector: 'app-records',
@@ -39,14 +40,18 @@ export class RecordsComponent implements OnInit {
     )
   }
 
-  view(id){
-    this.router.navigate(['/record'],{
-      queryParams: { id : id }
-    });
-  }
+
 
   openDialog(){
     this.dialog.open(DialogComponent)
+  }
+
+  openRecordDialog(record){
+    //console.log(record)
+    this.dialog.open(RecordComponent, {
+      width: '300px',
+      data: { record: record }
+    });
   }
 
 }

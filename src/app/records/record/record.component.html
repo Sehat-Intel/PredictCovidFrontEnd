@@ -1,0 +1,12 @@
+<h3>{{data.record.email}}</h3>
+<div mat-dialog-content>
+  <h1> {{ data.record.username }} </h1>
+
+  <h2>{{ data.record.status  }}</h2>
+  <h2>{{ data.record.percent }}</h2>
+</div>
+
+<br>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onNoClick()" >Close</button>
+</div>

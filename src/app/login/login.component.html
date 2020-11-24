@@ -8,6 +8,8 @@
     <mat-label>Enter your email</mat-label>
     <input matInput required placeholder="abc@abc.com" formControlName="email" type="email">
     <mat-icon matSuffix>alternate_email</mat-icon>
+    <mat-error *ngIf="loginForm.get('email').hasError('required')">Enter a value</mat-error>
+    <mat-error *ngIf="loginForm.get('email').hasError('email')">Enter a valid email</mat-error>
   </mat-form-field>
 </p>
 
@@ -18,6 +20,8 @@
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
+    <mat-error *ngIf="loginForm.get('password').hasError('required')">Enter a value</mat-error>
+    <mat-error *ngIf="loginForm.get('password').hasError('minlength')">enter more than 5 characters</mat-error>
   </mat-form-field>
 </p>
 

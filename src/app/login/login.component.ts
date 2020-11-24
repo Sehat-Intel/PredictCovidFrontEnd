@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -27,12 +27,13 @@ export class LoginComponent implements OnInit {
 
   createForm() {
     this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]]
     })
   }
 
   onSubmit() {
+    if( !this.loginForm.invalid ){
    this.authService.loginUser(this.loginForm.value)
    .subscribe(
     res => {
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
 
     },
     err => console.log(err)
-    )};
+    )}
+  };
 
 }
