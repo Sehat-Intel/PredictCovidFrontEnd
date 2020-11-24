@@ -9,19 +9,16 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item ">
-        <a class="nav-link" routerLink="/login" *ngIf="!authservice.loggedIn()">Login <span class="sr-only"></span></a>
+        <a class="nav-link" routerLink="/login" *ngIf="!authservice.loggedIn()">LOGIN <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" *ngIf="!authservice.loggedIn()">Sign Up</a>
+        <a class="nav-link" routerLink="/signup" *ngIf="!authservice.loggedIn()">SIGN UP</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://sehatintel.herokuapp.com/">User App</a>
+        <a class="nav-link" href="https://sehatintel.herokuapp.com/">USER APP</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/records" *ngIf="authservice.loggedIn()">Records</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="authservice.loggedIn()" (click)="authservice.logoutUser()">Logout</a>
+        <a class="nav-link" *ngIf="authservice.loggedIn()" (click)="authservice.logoutUser()">LOGOUT</a>
       </li>
 
     </ul>

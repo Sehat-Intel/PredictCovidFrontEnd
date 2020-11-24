@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Users } from "../models/users";
 import { Router } from "@angular/router";
 import { AuthService } from '../services/auth.service';
@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  hide = true;
 
   signupForm: FormGroup;
   model: Users;
@@ -25,10 +26,11 @@ export class SignupComponent implements OnInit {
     this.createForm();
   }
 
+
   createForm(){
     this.signupForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]]
     })
   }
@@ -36,17 +38,19 @@ export class SignupComponent implements OnInit {
   get f() { return this.signupForm.controls }
 
   onSubmit(){
-    this.model = this.signupForm.value;
-    console.log(this.model)
-    this.authService.signupUser(this.model)
-    .subscribe(
-      res => {
-        this.router.navigate(['/records'])
-        console.log(res)
-        localStorage.setItem('token', res.token )
-
-      },
-      err => console.log(err)
-      )};
+    if(!this.signupForm.invalid){
+      this.model = this.signupForm.value;
+      // console.log(this.model)
+      this.authService.signupUser(this.model)
+      .subscribe(
+        res => {
+          this.router.navigate(['/records'])
+          console.log(res)
+          localStorage.setItem('token', res.token )
+        },
+        err => console.log(err)
+        )};
+    }
 
 }
+

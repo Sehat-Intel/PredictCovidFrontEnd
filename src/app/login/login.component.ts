@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    if (this.authService.loggedIn()){
+      this.router.navigate(['/records'])
+    }
   }
 
   createForm() {
