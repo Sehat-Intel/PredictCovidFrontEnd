@@ -7,6 +7,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from './dialog/dialog.component';
 import {MatCardModule} from '@angular/material/card';
 import { RecordComponent } from './record/record.component';
+import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'app-records',
@@ -25,7 +26,9 @@ export class RecordsComponent implements OnInit {
     //this.openDialog()
     this.recordsService.getRecords()
     .subscribe(
-      res => this.records = res,
+      res => {
+        this.records = res
+    },
       err => {
         console.log(err)
         if (err instanceof HttpErrorResponse){
@@ -49,7 +52,6 @@ export class RecordsComponent implements OnInit {
   openRecordDialog(record){
     //console.log(record)
     this.dialog.open(RecordComponent, {
-      width: '300px',
       data: { record: record }
     });
   }

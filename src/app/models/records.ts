@@ -1,8 +1,8 @@
 export interface Users {
-  _is: string
+  _id: string
   username: string,
   email: string,
-  image: Buffer,
+  image: string,
   status: String,
   percent: String,
   message: string

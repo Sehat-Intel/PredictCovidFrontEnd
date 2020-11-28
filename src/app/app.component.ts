@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app-before-adding-material/src/app/services/auth.service';
+import { SpinnerService } from './services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.authService.logoutUser();
   }
   title = 'Sehat Intel';
 }

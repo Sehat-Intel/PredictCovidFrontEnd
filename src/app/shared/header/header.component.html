@@ -1,26 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-gradient-warning rounded">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-gradient-warning ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="material-icons">
       menu_open
       </span>
   </button>
 <a class="navbar-brand" href="#">Sehat Intel</a>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item ">
-        <a class="nav-link" routerLink="/login" *ngIf="!authservice.loggedIn()">LOGIN <span class="sr-only"></span></a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!authservice.loggedIn()">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" *ngIf="!authservice.loggedIn()">SIGN UP</a>
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active" *ngIf="!authservice.loggedIn()">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://sehatintel.herokuapp.com/">USER APP</a>
+        <a class="nav-link" href="https://sehatintel.herokuapp.com/" routerLinkActive="active">User App</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authservice.loggedIn()" (click)="authservice.logoutUser()">LOGOUT</a>
+        <a class="nav-link" *ngIf="authservice.loggedIn()" routerLinkActive="active"(click)="authservice.logoutUser()">Logout</a>
       </li>
-
     </ul>
   </div>
 </nav>
+
+<!-- <div class="loader-container">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div> -->
+
+<app-spinner *ngIf="spinnerService.isLoading | async" ></app-spinner>

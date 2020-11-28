@@ -15,7 +15,7 @@ import { DialogComponent } from './records/dialog/dialog.component';
 import { RecordsComponent } from './records/records.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
-import { RecordComponent } from './shared/record/record.component';
+import { RecordComponent } from './records/record/record.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,6 +25,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -36,7 +39,8 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     RecordsComponent,
     RecordComponent,
-    DialogComponent
+    DialogComponent,
+    SpinnerComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -55,7 +59,9 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatDialogModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

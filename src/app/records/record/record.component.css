@@ -1,3 +1,28 @@
-.width{
 
-}
+
+img{
+  border-radius: 5px 5px 5px 5px;
+  border: 3px solid #7F7F7F;
+  text-align: center;
+  align-items: center;
+  max-height: auto;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+};
+
+.record-percent{
+  text-indent: 10%;
+  font-weight: 500;
+};
+
+.record-status{
+  margin-top: 0;
+  text-align: left;
+};
+
+
+h1,h2,a,
+button{
+  font-family: "Public Sans", sans-serif !important
+};

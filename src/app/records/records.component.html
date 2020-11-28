@@ -2,16 +2,14 @@
   <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 mb-3 pr-1 pl-1" *ngFor="let record of records" (click)="openRecordDialog(record)">
     <div class="card text-center" [class]="record.status ==='Covid' ? 'border-danger' : 'border-success'">
 
-      <div class="card-header">{{record.username | uppercase}}
-      </div>
-
+      <p class="card-header">{{record.username | uppercase}}
+      </p>
       <div class="card-body">
-        <p class="card-text">{{record.percent}}</p>
-        <p class="card-text">{{ record.status | uppercase}}</p>
+        <p class="card-status">{{record.percent}} | {{record.status|uppercase}}</p>
+        <p class="card-date"> {{ record.created_time | date: 'MMMM d, y'}} </p>
       </div>
     </div>
 
   </div>
 </div>
-
 

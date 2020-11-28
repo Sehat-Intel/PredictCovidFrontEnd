@@ -1,7 +1,9 @@
+import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +18,17 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
-  ) { }
+    private spinnerService: SpinnerService
+  ) {
+    spinnerService.isLoading.next(false);
+   }
 
   ngOnInit(): void {
     this.createForm();
     if (this.authService.loggedIn()){
       this.router.navigate(['/records'])
     }
+
   }
 
   createForm() {

@@ -9,10 +9,10 @@
   min-width: 270px;
 }
 
-mat-card{
+mat-card {
   border-style: solid;
   border-width: 2px;
-  border-color: #EA4633;
+  border-color: #3f51b5;
 }
 
 
@@ -20,10 +20,12 @@ mat-card-title,
 mat-card-content {
   display: flex;
   justify-content: center;
+  font-family: "Public Sans", sans-serif;
 }
 
 
-.button {
-  display: flex;
-  justify-content: flex-end;
+button{
+  font-family: "Public Sans", sans-serif !important
 }
+
+

@@ -1,3 +1,21 @@
 .card{
   border-width: 2px;
 }
+
+.card-header{
+  font-size: 18px;
+}
+
+.card-percent{
+  font-size: 15px;
+}
+
+
+
+
+.card-header,
+.card-date,
+.card-status
+{
+  font-family: "Public Sans", sans-serif;
+}

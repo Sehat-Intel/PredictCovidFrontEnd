@@ -1,14 +1,28 @@
 .navbar{
-  margin: 4px;
-  border-width: 2px;
-  border-style: solid;
+  margin: 5px;
+  border-bottom: 4px solid #7F7F7F;
 }
 
 .navbar-toggler{
-  border-color: black;
-  border-width: 2px;
+  border-color: #7F7F7F;
+  border-width: 3px;
 }
 
 .nav-link{
   font-size: large;
+}
+
+a{
+  font-family: "Public Sans", sans-serif;
+}
+
+.navbar-brand{
+  font-size: 30px;
+}
+
+.loader-container{
+  margin-top: 0%;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
