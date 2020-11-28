@@ -15,6 +15,7 @@ const routes: Routes = [
     component: RecordsComponent,
     canActivate: [AuthGuard]
  },
+ { path: '**', component: LoginComponent },
 ];
 
 @NgModule({

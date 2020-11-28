@@ -4,6 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,18 +27,14 @@ import { RecordsComponent } from './records/records.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { RecordComponent } from './records/record/record.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ErrorsComponent } from './shared/errors/errors.component';
+
+import { ErrorHandler } from "@angular/core";
+import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErrorHandler';
+
+
+
 
 
 
@@ -40,7 +47,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     RecordsComponent,
     RecordComponent,
     DialogComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ErrorsComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -63,11 +71,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     MatProgressBarModule
   ],
-  providers: [AuthGuard, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [
+    AuthGuard,
+    {provide: ErrorHandler, useFactory: getErrorHandler},
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
