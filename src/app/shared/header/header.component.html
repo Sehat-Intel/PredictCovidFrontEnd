@@ -4,7 +4,7 @@
       menu_open
       </span>
   </button>
-<a class="navbar-brand" href="#">Sehat Intel</a>
+<a class="navbar-brand" >Sehat Intel</a>
 
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -13,6 +13,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/signup" routerLinkActive="active" *ngIf="!authservice.loggedIn()">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/records" routerLinkActive="active" *ngIf="authservice.loggedIn()">Records</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://sehatintel.herokuapp.com/" routerLinkActive="active">User App</a>
