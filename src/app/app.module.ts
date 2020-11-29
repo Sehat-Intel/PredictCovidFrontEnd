@@ -58,18 +58,11 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
-    MatListModule,
     MatDialogModule,
     MatInputModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule
   ],
   providers: [
     AuthGuard,
