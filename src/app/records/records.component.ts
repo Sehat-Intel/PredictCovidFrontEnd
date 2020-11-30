@@ -5,9 +5,7 @@ import { Router } from "@angular/router";
 
 import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from './dialog/dialog.component';
-import {MatCardModule} from '@angular/material/card';
 import { RecordComponent } from './record/record.component';
-import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'app-records',

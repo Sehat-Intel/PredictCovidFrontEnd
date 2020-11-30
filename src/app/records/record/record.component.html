@@ -5,13 +5,14 @@
 </div>
 
 <div *ngIf="image">
-  <h1 class="record-status"> {{ data.record.status | uppercase }}</h1>
-<h1 class="record-percent"> {{ data.record.percent }} </h1>
-<img [src]="image" alt="" class="img-fluid p-1">
-<h2>{{ data.record.created_time | date: 'EEEE, MMMM d, y, h:mm:ss a zzzz' }}</h2>
-<div mat-dialog-actions>
-  <button mat-stroked-button color="warn" mat-dialog-close (click)="OnNoClick()">Close</button>
-</div>
+  <h2> {{ data.record.username | uppercase }}</h2>
+  <h2 class="record-status"> {{ data.record.status | uppercase }}</h2>
+  <h2 class="record-percent"> {{ data.record.percent }} </h2>
+  <img [src]="image" alt="" class="img-fluid p-1">
+  <h2>{{ data.record.created_time | date: 'EEEE, MMMM d, y' }}</h2>
+  <div mat-dialog-actions>
+    <button mat-stroked-button color="warn" mat-dialog-close (click)="OnNoClick()">Close</button>
+  </div>
 </div>
 
 

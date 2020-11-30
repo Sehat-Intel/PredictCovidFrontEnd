@@ -5,6 +5,7 @@ import { RecordComponent } from './record/record.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const recordRoutes : Routes= [
   {
@@ -21,10 +22,11 @@ const recordRoutes : Routes= [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(recordRoutes)
+    RouterModule.forChild(recordRoutes),
+    MatDialogModule,
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ]
 })
 export class RecordsModule  {

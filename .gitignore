@@ -48,3 +48,6 @@ Thumbs.db
 
 /app-before-adding-material
 src/app/material-module.ts
+
+# Local Netlify folder
+.netlify

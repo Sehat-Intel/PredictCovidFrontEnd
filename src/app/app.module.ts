@@ -20,7 +20,6 @@ import { DialogComponent } from './records/dialog/dialog.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
-// import { ErrorsComponent } from './shared/errors/errors.component';
 
 import { ErrorHandler } from "@angular/core";
 import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErrorHandler';
@@ -33,7 +32,6 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     LoginComponent,
     HeaderComponent,
     SpinnerComponent,
-    // ErrorsComponentcode split
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -45,9 +43,9 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule,
     MatInputModule,
     MatCardModule,
+    MatDialogModule
   ],
   providers: [
     AuthGuard,

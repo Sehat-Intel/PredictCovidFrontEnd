@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Users } from "../models/users";
 import { Router } from "@angular/router";
 import { AuthService } from '../services/auth.service';
+import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'app-signup',
@@ -18,8 +19,9 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private spinnerService: SpinnerService
+  ) {spinnerService.isLoading.next(false); }
 
 
   ngOnInit(): void {
