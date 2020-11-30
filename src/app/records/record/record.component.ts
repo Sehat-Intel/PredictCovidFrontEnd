@@ -5,9 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 import { ImageService } from 'src/app/services/image.service';
-import { RecordsService } from "../../services/records.service";
 import { RecordsComponent } from '../records.component';
-import { SpinnerService } from 'src/app/services/spinner.service';
 
 @Component({
   selector: 'app-record',
@@ -19,8 +17,6 @@ export class RecordComponent implements OnInit {
   image : any = null;
 
   constructor(
-    private router: Router,
-    private recordsService: RecordsService,
     private imageService: ImageService,
     private sanitizer: DomSanitizer,
     public dialogRef: MatDialogRef<RecordsComponent>,
@@ -30,7 +26,7 @@ export class RecordComponent implements OnInit {
   ngOnInit(): void {
     this.imageService.getImage(this.data.record.image_id).subscribe(
       res => {
-        this.image = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/jpg;base64, ${res.image}`);
+        this.image = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/jpg;base64,${res}`);
       }
         ,
       err => {

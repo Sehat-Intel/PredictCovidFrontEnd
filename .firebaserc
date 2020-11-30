@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sehatintel-tuminzee": {
+      "hosting": {
+        "jwt-angular": [
+          "sehatintel-tuminzee"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sehatintel-tuminzee"
+  }
+}
