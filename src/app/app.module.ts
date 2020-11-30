@@ -1,20 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,19 +17,13 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { DialogComponent } from './records/dialog/dialog.component';
-import { RecordsComponent } from './records/records.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
-import { RecordComponent } from './records/record/record.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
-import { ErrorsComponent } from './shared/errors/errors.component';
+// import { ErrorsComponent } from './shared/errors/errors.component';
 
 import { ErrorHandler } from "@angular/core";
 import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErrorHandler';
-
-
-
-
 
 
 @NgModule({
@@ -44,11 +32,8 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     SignupComponent,
     LoginComponent,
     HeaderComponent,
-    RecordsComponent,
-    RecordComponent,
-    DialogComponent,
     SpinnerComponent,
-    ErrorsComponent
+    // ErrorsComponentcode split
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -71,4 +56,10 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
 ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ constructor() {
+    console.log('app module loaded');
+
+  }
+
+}
