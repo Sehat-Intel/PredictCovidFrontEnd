@@ -22,7 +22,7 @@ getSelectedRecord(id: string): Observable<any>{
 
 updateMessage(id: string, message: string): Observable<any>{
   console.log(id, message)
-  return this.http.post<any>(`${this.baseUrl}/records/${id}`, {message: message});
+  return this.http.post<string>(`${this.baseUrl}/records/message/${id}`, {message: message});
 }
 
 }

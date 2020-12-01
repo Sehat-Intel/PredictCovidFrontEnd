@@ -6,6 +6,10 @@ import { DialogComponent } from './dialog/dialog.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const recordRoutes : Routes= [
   {
@@ -24,15 +28,15 @@ const recordRoutes : Routes= [
     CommonModule,
     RouterModule.forChild(recordRoutes),
     MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports: [
-    RouterModule,
+    RouterModule
   ]
 })
 export class RecordsModule  {
-  constructor() {
-    console.log('records module loaded');
-
-  }
-
 }

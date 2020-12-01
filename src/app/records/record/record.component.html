@@ -5,13 +5,26 @@
 </div>
 
 <div *ngIf="image">
-  <h2> {{ data.record.username | uppercase }}</h2>
-  <h2 class="record-status"> {{ data.record.status | uppercase }}</h2>
-  <h2 class="record-percent"> {{ data.record.percent }} </h2>
+  <p> {{ data.record.username | uppercase }}</p>
+  <p class="record-status"> {{ data.record.status | uppercase }}</p>
+  <p class="record-percent"> {{ data.record.percent }} </p>
   <img [src]="image" alt="" class="img-fluid p-1">
-  <h2>{{ data.record.created_time | date: 'EEEE, MMMM d, y' }}</h2>
+  <p>{{ data.record.created_time | date: 'EEEE, MMMM d, y' }}</p>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Message</mat-label>
+    <input matInput [formControl]=message maxlength="256" placeholder="Ex. I think you should...">
+    <mat-hint align="start"><strong>Leave message for the record </strong> </mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+  </mat-form-field>
+
+
+
   <div mat-dialog-actions>
-    <button mat-stroked-button color="warn" mat-dialog-close (click)="OnNoClick()">Close</button>
+    <button mat-stroked-button color="warn" (click)="OnNoClick()">Close</button>
+    <button mat-stroked-button color="primary" (click)="onSave()">Save</button>
+
   </div>
 </div>
 

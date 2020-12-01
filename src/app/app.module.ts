@@ -22,7 +22,10 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 import { ErrorHandler } from "@angular/core";
-import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErrorHandler';
+import { getErrorHandler } from './shared/errors/SentryErrorHandler';
+import { RecordComponent } from './records/record/record.component';
+import { ErrorsComponent } from './shared/errors/errors.component';
+
 
 
 @NgModule({
@@ -33,7 +36,7 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     HeaderComponent,
     SpinnerComponent,
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, RecordComponent, ErrorsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,7 +48,7 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
     MatIconModule,
     MatInputModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     AuthGuard,
@@ -55,9 +58,4 @@ import { getErrorHandler, SentryErrorHandler  } from './shared/errors/SentryErro
   bootstrap: [AppComponent]
 })
 export class AppModule {
- constructor() {
-    console.log('app module loaded');
-
-  }
-
 }
