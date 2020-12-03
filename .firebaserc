@@ -1,14 +1,14 @@
 {
+  "projects": {
+    "default": "sehatintel-firebase"
+  },
   "targets": {
-    "sehatintel-tuminzee": {
+    "sehatintel-firebase": {
       "hosting": {
         "jwt-angular": [
-          "sehatintel-tuminzee"
+          "sehatintel-firebase"
         ]
       }
     }
-  },
-  "projects": {
-    "default": "sehatintel-tuminzee"
   }
 }

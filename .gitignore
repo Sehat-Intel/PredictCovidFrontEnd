@@ -49,6 +49,7 @@ Thumbs.db
 /app-before-adding-material
 src/app/material-module.ts
 src/app/shared/errors/SentryErrorHandler.ts
+src/environments
 
 # Local Netlify folder
 .netlify

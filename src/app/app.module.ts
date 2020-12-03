@@ -10,7 +10,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -25,6 +24,8 @@ import { ErrorHandler } from "@angular/core";
 import { getErrorHandler } from './shared/errors/SentryErrorHandler';
 import { RecordComponent } from './records/record/record.component';
 import { ErrorsComponent } from './shared/errors/errors.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -49,6 +50,8 @@ import { ErrorsComponent } from './shared/errors/errors.component';
     MatInputModule,
     MatCardModule,
     MatDialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+
   ],
   providers: [
     AuthGuard,
