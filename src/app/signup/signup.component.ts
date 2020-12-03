@@ -4,6 +4,7 @@ import { Users } from "../models/users";
 import { Router } from "@angular/router";
 import { AuthService } from '../services/auth.service';
 import { SpinnerService } from '../services/spinner.service';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +12,7 @@ import { SpinnerService } from '../services/spinner.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  private subs = new SubSink();
   hide = true;
 
   signupForm: FormGroup;
@@ -43,7 +45,7 @@ export class SignupComponent implements OnInit {
     if(!this.signupForm.invalid){
       this.model = this.signupForm.value;
       // console.log(this.model)
-      this.authService.signupUser(this.model)
+      this.subs.add(      this.authService.signupUser(this.model)
       .subscribe(
         res => {
           this.router.navigate(['/records'])
@@ -51,8 +53,9 @@ export class SignupComponent implements OnInit {
           localStorage.setItem('token', res.token )
         },
         err => console.log(err)
-        )};
-    }
+        ));
+      };
+    };
 
 }
 
