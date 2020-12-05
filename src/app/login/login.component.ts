@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private spinnerService: SpinnerService
   ) {
     spinnerService.isLoading.next(false);

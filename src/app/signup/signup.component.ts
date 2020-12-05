@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
     if(!this.signupForm.invalid){
       this.model = this.signupForm.value;
       // console.log(this.model)
-      this.subs.add(      this.authService.signupUser(this.model)
+      this.subs.add(this.authService.signupUser(this.model)
       .subscribe(
         res => {
           this.router.navigate(['/records'])

@@ -4,7 +4,6 @@ import { AuthService } from "./services/auth.service";
 import { SpinnerService } from './services/spinner.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
-import { RecordComponent } from './records/record/record.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorsComponent } from './shared/errors/errors.component';
 
