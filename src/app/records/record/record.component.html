@@ -8,7 +8,7 @@
   <p> {{ data.record.username | uppercase }}</p>
   <p class="record-status"> {{ data.record.status | uppercase }}</p>
   <p class="record-percent"> {{ data.record.percent }} </p>
-  <img [src]="image" alt="" class="img-fluid p-1">
+  <img [src]="image" alt="record image" class="img-fluid p-1">
   <p>{{ data.record.created_time | date: 'EEEE, MMMM d, y' }}</p>
 
 

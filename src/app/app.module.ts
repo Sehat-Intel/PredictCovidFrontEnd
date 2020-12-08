@@ -40,6 +40,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     SignupComponent,
     LoginComponent,
+    ErrorsComponent,
     HeaderComponent,
     SpinnerComponent,
   ],

@@ -31,18 +31,16 @@ export class TokenInterceptorService implements HttpInterceptor {
       catchError((err) => {
         console.log(err)
         let errorMessage = '';
-        if(err instanceof HttpErrorResponse){
           if(err.status == 401){
             errorMessage = `Error: ${err.error.message}\nMessage: ${err.statusText}\nStatus: ${err.status}`;
-            this.openDialog(errorMessage);
-          }
-        } else{
-
+        }else if(err.status == 0 ){
+          errorMessage = `Sorry not able to connect to the server, please try again later.
+          Drop a query to sehatintel@gmail.com! `
         }
-        errorMessage = `Error: ${err.error.message}
-        Message: ${err.statusText}
-        Status: ${err.status}`;
-        //window.alert(errorMessage);
+         else{
+          errorMessage = `Error: ${err.error.message}\nMessage: ${err.statusText}\nStatus: ${err.status}`;
+        }
+        this.openDialog({status: status, message: errorMessage});
         throw new Error(errorMessage);
       }),
       finalize(
@@ -53,9 +51,10 @@ export class TokenInterceptorService implements HttpInterceptor {
     )
   }
 
-  openDialog(error): void {
+  openDialog(data): void {
     const dialogRef = this.dialog.open(ErrorsComponent, {
-      data: {data: error}
+      data: {message: data.message,
+      status: data.status}
     });
   }
 }
