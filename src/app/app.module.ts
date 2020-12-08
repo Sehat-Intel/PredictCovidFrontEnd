@@ -3,12 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { firebaseConfig } from '../environments/environment'
-
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -47,7 +41,6 @@ import { environment } from '../environments/environment';
   entryComponents: [DialogComponent, RecordComponent, ErrorsComponent],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

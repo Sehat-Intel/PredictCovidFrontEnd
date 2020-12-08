@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "sehatintel-firebase"
+  },
+  "targets": {
+    "sehatintel-firebase": {
+      "hosting": {
+        "jwt-angular": [
+          "sehatintel-firebase"
+        ]
+      }
+    }
   }
 }

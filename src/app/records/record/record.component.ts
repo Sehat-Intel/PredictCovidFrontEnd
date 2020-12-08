@@ -54,9 +54,9 @@ export class RecordComponent implements OnInit, OnDestroy {
   onSave(){
     this.subs.add(this.recordsService.updateMessage(this.data.record._id, this.data.record.email ,this.message.value).subscribe(
       res => {
-        //this.data.record.message = this.message.value;
+        this.data.record.message = this.message.value;
         console.log(res);
-        this.openSnackBar(res);
+        this.openSnackBar(res.message);
       },
       err => {
         console.log(err);

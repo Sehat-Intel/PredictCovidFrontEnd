@@ -24,7 +24,7 @@ export class RecordsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    //this.openDialog()
+    this.openDialog()
     this.subs.add( this.recordsService.getRecords()
     .subscribe(
       res => {
